@@ -1,6 +1,8 @@
 package fr.mitoto.tplugin;
 
 import fr.mitoto.tplugin.commands.*;
+import fr.mitoto.tplugin.factions.commands.Factions;
+import fr.mitoto.tplugin.listeners.Players;
 import fr.mitoto.tplugin.utils.commands.SimpleCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_19_R1.CraftServer;
@@ -11,16 +13,17 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getLogger().info("Enable !");
+        getLogger().info("Enable");
 
         // Event Handler
         PluginManager pluginManager = Bukkit.getServer().getPluginManager();
         pluginManager.registerEvents(new Freeze(), this);
         pluginManager.registerEvents(new Stat(), this);
+        pluginManager.registerEvents(new Players(), this);
 
         // Comand Handler
         createCommand(new SimpleCommand(
-                "broadcast",
+                "broadcast add",
                 "envoyer un message à tout le serveur",
                 new Broadcast(),
                 "tplugin.broadcast",
@@ -58,11 +61,19 @@ public class Main extends JavaPlugin {
                 "TPlugin.freeze",
                 ""
         ));
+
+        createCommand(new SimpleCommand(
+                "factions",
+                "gestion des factions",
+                new Factions(),
+                "TPlugin.factions",
+                ""
+        ));
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("Disable !");
+        getLogger().info("Disable");
     }
 
     public void createCommand(SimpleCommand command) {

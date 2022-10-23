@@ -25,13 +25,13 @@ public class Vanish implements CommandExecutor {
     private void setVanish(Player p) {
         if(VanishPlayers.contains(p)) {
             p.setInvisible(false);
-            p.sendMessage(ChatColor.GREEN + "Vanish mod disable");
+            p.sendMessage(ChatColor.GREEN + "You are now" + ChatColor.GOLD + " Visible");
             VanishPlayers.remove(p);
             return;
         }
 
         p.setInvisible(true);
-        p.sendMessage(ChatColor.GREEN + "Vanish mod enable");
+        p.sendMessage(ChatColor.GREEN + "You are now" + ChatColor.GOLD + " Invisible");
         VanishPlayers.add(p);
     }
 }

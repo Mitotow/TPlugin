@@ -1,4 +1,0 @@
-name: TPlugin
-version: 1.0
-api-version: 1.19
-main: fr.mitoto.tplugin.Main

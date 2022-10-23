@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'fr.mitoto'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot:1.19.2-R0.1-SNAPSHOT' // The full Spigot server with no shadowing. Requires mavenLocal
+}
+
+sourceCompatibility = targetCompatibility = '17'
+compileJava.options.encoding = 'UTF-8'
+setLibsDirName('C:/Users/Thomas-Mitoto/Desktop/servertest/plugins')

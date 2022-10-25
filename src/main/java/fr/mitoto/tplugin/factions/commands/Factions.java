@@ -16,14 +16,14 @@ public class Factions implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] strings) {
+        Player p = sender.getServer().getPlayer(sender.getName());
+        assert p != null;
+
         if(strings.length < 1) {
-            sender.sendMessage("\"/faction help\" pour connaître toutes les commandes utilisables.");
+            help(p);
             return false;
         }
 
-        Player p = sender.getServer().getPlayer(sender.getName());
-
-        assert p != null;
         switch (strings[0]) {
             case "help":
                 help(p);
@@ -67,12 +67,12 @@ public class Factions implements CommandExecutor {
 
     private void list(Player p) {
         StringBuilder message = new StringBuilder();
-        message.append(ChatColor.BLUE + "--------------------------------------------------\n" + ChatColor.GOLD);
+        message.append("&9--------------------------------------------------\n" + ChatColor.GOLD);
         for(Map.Entry<String, Faction> entry : factions.entrySet()) {
-            message.append(entry.getKey()).append(" faction of ").append(entry.getValue().getMembers().size()).append(" members\n");
+            message.append("&1" + entry.getKey()+" faction of &6"+entry.getValue().getMembers().size()+" &9members\n");
         }
-        message.append(ChatColor.BLUE + "--------------------------------------------------\n");
-        p.sendMessage(String.valueOf(message));
+        message.append("&9--------------------------------------------------\n");
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', message.toString()));
     }
 
 }

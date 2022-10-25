@@ -18,7 +18,7 @@ public class Main extends JavaPlugin {
         // Event Handler
         PluginManager pluginManager = Bukkit.getServer().getPluginManager();
         pluginManager.registerEvents(new Freeze(), this);
-        pluginManager.registerEvents(new Stat(), this);
+        pluginManager.registerEvents(new Stats(), this);
         pluginManager.registerEvents(new Players(), this);
 
         // Comand Handler
@@ -49,7 +49,7 @@ public class Main extends JavaPlugin {
         createCommand(new SimpleCommand(
                 "stats",
                 "récupérer les stats du joueur",
-                new Stat(),
+                new Stats(),
                 "",
                 ""
         ));
@@ -69,6 +69,15 @@ public class Main extends JavaPlugin {
                 "TPlugin.factions",
                 ""
         ));
+
+        createCommand(new SimpleCommand(
+                "players",
+                "récupérer la liste des joeuurs connectés",
+                new fr.mitoto.tplugin.commands.Players(),
+                "",
+                ""
+        ));
+
     }
 
     @Override

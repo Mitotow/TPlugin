@@ -16,4 +16,4 @@ dependencies {
 
 sourceCompatibility = targetCompatibility = '17'
 compileJava.options.encoding = 'UTF-8'
-setLibsDirName('C:/Users/Thomas-Mitoto/Desktop/servertest/plugins')
+setLibsDirName('C:/Users/abrst/Desktop/servertest/plugins')
